@@ -125,6 +125,13 @@ typedef struct
 #define		DIR_U0RBR		( ( uint32_t  * ) 0x4000C000UL )
 //0x40010000UL : Registro de transmision de la UART0:
 #define		DIR_U0THR		( ( uint32_t  * ) 0x4000C000UL )
+//	AGREGO ESTO
+//0x40010000UL : Registro Habilitador de la interrupcion de la UART0:
+#define		DIR_U0IER		( ( uint32_t  * ) 0x4000C004UL )
+//0x40010000UL : Registro de Identificacion de la Interrupcion de la UART0:
+#define		DIR_U0IIR		( ( uint32_t  * ) 0x4000C008UL )
+
+
 
 //UART1:
 //0x4001000CUL : Registro de control de la UART1:
@@ -366,7 +373,9 @@ typedef struct
 
 #define		U0RDR		(U0LSR&0x01)
 #define		U0THRE		((U0LSR&0x20)>>5)
-
+//	AGREGO ESTO
+#define		U0IIR		DIR_U0IIR[0]
+#define		U0IER		DIR_U0IER[0]
 //Registros de la UART1:
 #define		U1THR		DIR_U1THR[0]
 #define		U1RBR		DIR_U1RBR[0]
